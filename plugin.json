@@ -1,0 +1,35 @@
+{
+    "name": "Serial Port",
+    "description": "TODO: describe plugin",
+    "tags": ["python"],
+    "script": "SerialRead.py",
+    "type": "importer",
+    "extra_paths": [],
+    "parameters": [
+        {
+            "name": "Port",
+            "type": "string"
+        },
+        {   
+            "name":"Baudrate",
+            "type":"integer"
+        },
+        {
+            "name":"Timeout Duration, (s, 0 for no timeout)",
+            "type":"integer"
+        },
+        {
+            "name": "Number of Bytes",
+            "type":"integer"
+        },
+        {
+            "name":"New Frame on Carriage Return?",
+            "type":"boolean"
+        },
+        {
+           "name": "Include Carriage Return and Newline Characters?",
+            "type": "boolean"
+        }
+
+    ]
+}
