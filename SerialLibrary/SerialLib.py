@@ -9,13 +9,12 @@ class reader():
     timeout = 0
     numBytes = 0
     car_and_NL = False
-    nf_cr = False
     __returnbytes = bytearray()
     __dataRead = bytes
     __dataList = []
 
 
-    def __init__(self, port:str, baudrate:int, timeout:int, bytesNum:int, nf_cr:bool,cariage_and_NL:bool):
+    def __init__(self, port:str, baudrate:int, timeout:int, bytesNum:int,cariage_and_NL:bool):
         """
         Initialize the reader with the necessary information, serial port address, baudrate, timeout duration,
         and the number of bytes to read, and check if the timeout is 0, and if it is then set the timeout to None.
@@ -29,7 +28,6 @@ class reader():
             baudrate (int): [The baudrate that the serial port/device is working on, baudrate describes the maximum number of bits transfered per second]
             timeout (int): [How long for the reader to read from the serial port before stopping, set to 0 for no timeout]
             bytesNum (int): [How many bytes (not bits) for the serial reader to read in befor stopping]
-            nf_cr (bool): [Should hobbits create a new frame on a carriage return or not]
             cariage_and_NL (bool): [Should the Cariage Return and Newline Symbols be included in the output, Set False to remove items]
         """
 
@@ -37,7 +35,6 @@ class reader():
         self.baudrate = baudrate
         self.numBytes = bytesNum
         self.car_and_NL = cariage_and_NL
-        self.nf_cr = nf_cr
 
         if timeout == 0:
             self.timeout = None
@@ -94,14 +91,7 @@ class reader():
 
         """
         Formats the serial data so that it can have \r\n removed, and formated back to binary.
-        """
-        if self.nf_cr:
-            self.__dataRead = self.__dataRead.decode()
-            self.__dataList = self.__dataRead.split("\r\n")
-            for i in range(0, len(self.__dataList)):
-                if self.car_and_NL:
-                    self.__dataList[i]+="\r\n"
-                
+        """     
                 
         if self.car_and_NL == False:
             self.__dataRead = self.__dataRead.decode()

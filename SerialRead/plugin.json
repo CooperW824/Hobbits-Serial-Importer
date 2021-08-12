@@ -1,6 +1,6 @@
 {
     "name": "Serial Port",
-    "description": "TODO: describe plugin",
+    "description": "Read Data from Serial Port",
     "tags": ["python"],
     "script": "SerialRead.py",
     "type": "importer",
@@ -21,10 +21,6 @@
         {
             "name": "Number of Bytes",
             "type":"integer"
-        },
-        {
-            "name":"New Frame on Carriage Return?",
-            "type":"boolean"
         },
         {
            "name": "Include Carriage Return and Newline Characters?",

@@ -1,8 +1,8 @@
-import SerialLib.SerialLib as SerialLib
+import SerialLib
 
-def import_bits(imported_bits, imported_bit_info, port:str, baudrate:int, timeout:int, numBytes:int, nf_cr:bool, c_nl:bool, progress):
+def import_bits(imported_bits, imported_bit_info, port:str, baudrate:int, timeout:int, numBytes:int, c_nl:bool, progress):
     
-    reader = SerialLib.reader(port, baudrate, timeout, numBytes, nf_cr, c_nl) # initialize the reader object
+    reader = SerialLib.reader(port, baudrate, timeout, numBytes, c_nl) # initialize the reader object
 
     reader.check_port() # check the users port
 
